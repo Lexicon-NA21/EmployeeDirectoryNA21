@@ -17,7 +17,7 @@
         //Publikt fält OBS! Använd property istället
         //Autoproperty som i Name nedan om du inte behöver validera eller göra något, dvs skriva kod i gettern eller settern
         //Annars property med tillhörande privat fält som i length även om vi inte skriver någon kod här just nu
-        //public int Age;
+         //public int Age;
 
         //privat fält som sätts av SetHeight(), Hämtas av GetHeight()
         //Så här gör man oftast i andra språk tex Java.
@@ -32,7 +32,7 @@
 
         public void SetHeight(int newHeight)
         {
-            height = newHeight;
+             height = newHeight;
         }
 
 
@@ -53,7 +53,29 @@
         public string Name { get; set; }
 
         //Konstruktor
+        //Snippet ctor
+        //Det här en default konstruktor den finns även om den inte syns. Tills man skapar en annan konstuktor. Då måste man skriva ut den manuellt för att få tillgång till den.
+        //public Robot()
+        //{
+
+        //}
+
+        //Konstruktor med en parameter
+        //En konstruktor har aldrig någon retur typ och heter samma sak som klassen
+        //Konstruktorn körs direkt när man skapar ett ny instans av klassen med nyckelordet new
+        //Tex Robot robot = new Robot("Kalle");
+        //Nu måste vi alltid skicka med ett namn för att få skapa en ny Robot
+        public Robot(string name)
+        {
+            Name = name;
+        }
 
         //metoder
+        public void Walk(int distance)
+        {
+            //ToDo Implement later
+        } 
+        
+ 
     }
 }
