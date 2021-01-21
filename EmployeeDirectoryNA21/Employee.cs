@@ -9,10 +9,26 @@ namespace EmployeeDirectoryNA21
         public int Salary { get; }
         public string Name { get; }
 
+        public SalaryLevel SalaryLevel 
+        {
+            get
+            {
+               return Salary < 15000 ? 
+                             SalaryLevel.Junior : 
+                             SalaryLevel.Senior ;
+            }
+        
+        }
+
         public Employee(int salary, string name)
         {
             Salary = salary;
             Name = name;
+        }
+
+        public override string ToString()
+        {
+            return $"Name: {Name}, Salary: {Salary}";
         }
 
     }
