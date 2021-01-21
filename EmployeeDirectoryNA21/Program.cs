@@ -5,6 +5,7 @@ namespace EmployeeDirectoryNA21
     class Program
     {
         static Payroll payroll = new Payroll();
+        static ConsoleUI ui = new ConsoleUI();
 
         static void Main(string[] args)
         {
@@ -13,41 +14,48 @@ namespace EmployeeDirectoryNA21
             do
             {
                 ShowMainMeny();
-
-                switch (Console.ReadLine())
-                {
-                    case "1":
-                        AddEmployee();
-                        break;
-                    case "2":
-                        PrintEmployee();
-                        break;
-                    case "3":
-                        Environment.Exit(0);
-                        break;
-                    default:
-                        Console.WriteLine("Wrong input");
-                        break;
-                }
+                UserAction();
 
             } while (true);
         }
 
+        private static void UserAction()
+        {
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    AddEmployee();
+                    break;
+                case "2":
+                    PrintEmployee();
+                    break;
+                case "3":
+                    Environment.Exit(0);
+                    break;
+                default:
+                    ui.Print("Wrong input");
+                    break;
+            }
+        }
+
         private static void AddEmployee()
         {
-            Console.WriteLine("Add a new Employee");
-            string name = Util.AskForString("Name: ");
-        
-            int salary = int.Parse(Util.AskForString("Salary: "));
+            do
+            {
+                ui.Print("Add a new Employee, Q for exit");
+                string name = Util.AskForString("Name: ", ui);
+                if (name.Equals("Q")) break;
+                int salary = Util.AskForInt("Salary: ", ui);
+                payroll.AddEmplyee(name, salary);
 
-            payroll.AddEmplyee(name, salary);
+            } while (true);
         }
 
         private static void ShowMainMeny()
         {
-            Console.WriteLine("1. add employee");
-            Console.WriteLine("2. print employees");
-            Console.WriteLine("3. Quit");
+            ui.Print("1. add employee");
+            ui.Print("2. print employees");
+            ui.Print("3. Quit");
         }
 
         private static void PrintEmployee()
@@ -56,7 +64,7 @@ namespace EmployeeDirectoryNA21
 
             foreach (Employee employee in employees)
             {
-                Console.WriteLine(employee);
+                ui.Print(employee);
             }
         }
 

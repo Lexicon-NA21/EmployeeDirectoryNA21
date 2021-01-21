@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EmployeeDirectoryNA21
 {
-    class Employee
+    public class Employee
     {
         public int Salary { get; }
         public string Name { get; }

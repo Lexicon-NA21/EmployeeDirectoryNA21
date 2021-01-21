@@ -6,7 +6,7 @@ namespace EmployeeDirectoryNA21
 {
     public static class Util
     {
-        public static string AskForString(string prompt)
+        public static string AskForString(string prompt, ConsoleUI ui)
         {
             bool success = false;
             string answer;
@@ -14,11 +14,11 @@ namespace EmployeeDirectoryNA21
             do
             {
                 Console.WriteLine(prompt);
-                answer = Console.ReadLine();
+                answer = ui.GetInput();
 
-                if (string.IsNullOrWhiteSpace(answer))
+                if (String.IsNullOrWhiteSpace(answer))
                 {
-                    Console.WriteLine("You must enter something");
+                    ui.Print("You must enter something");
                 }
                 else
                 {
@@ -28,6 +28,25 @@ namespace EmployeeDirectoryNA21
             } while (!success);
 
             return answer;
+        }
+
+        public static int AskForInt(string prompt, ConsoleUI ui)
+        {
+            bool success = false;
+            int answer;
+
+            do
+            {
+                string input = AskForString(prompt, ui);
+                success = int.TryParse(input, out answer);
+                if(!success)
+                    ui.Print("Only numbers");
+
+
+            } while (!success);
+
+            return answer;
+
         }
     }
 }
