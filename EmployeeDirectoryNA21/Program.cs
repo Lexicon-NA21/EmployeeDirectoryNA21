@@ -9,7 +9,7 @@ namespace EmployeeDirectoryNA21
         static void Main(string[] args)
         {
             SeedData();
-      
+
             do
             {
                 ShowMainMeny();
@@ -17,7 +17,7 @@ namespace EmployeeDirectoryNA21
                 switch (Console.ReadLine())
                 {
                     case "1":
-
+                        AddEmployee();
                         break;
                     case "2":
                         PrintEmployee();
@@ -25,9 +25,58 @@ namespace EmployeeDirectoryNA21
                     case "3":
                         Environment.Exit(0);
                         break;
+                    default:
+                        Console.WriteLine("Wrong input");
+                        break;
                 }
 
             } while (true);
+        }
+
+        private static void AddEmployee()
+        {
+            Console.WriteLine("Add a new Employee");
+            bool success = false;
+            string name;
+
+            do
+            {
+                Console.WriteLine("Name: ");
+                name = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    Console.WriteLine("You must enter something");
+                }
+                else
+                {
+                    success = true;
+                }
+
+            } while (!success);
+
+            string salary;
+            success = false;
+
+            do
+            {
+                Console.WriteLine("Salary: ");
+                salary = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(salary))
+                {
+                    Console.WriteLine("You must enter something");
+                }
+                else
+                {
+                    success = true;
+                }
+
+            } while (!success);
+
+
+
+            payroll.AddEmplyee(name, 1000);
         }
 
         private static void ShowMainMeny()
