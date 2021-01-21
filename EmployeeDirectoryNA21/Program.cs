@@ -36,47 +36,11 @@ namespace EmployeeDirectoryNA21
         private static void AddEmployee()
         {
             Console.WriteLine("Add a new Employee");
-            bool success = false;
-            string name;
+            string name = Util.AskForString("Name: ");
+        
+            int salary = int.Parse(Util.AskForString("Salary: "));
 
-            do
-            {
-                Console.WriteLine("Name: ");
-                name = Console.ReadLine();
-
-                if (string.IsNullOrWhiteSpace(name))
-                {
-                    Console.WriteLine("You must enter something");
-                }
-                else
-                {
-                    success = true;
-                }
-
-            } while (!success);
-
-            string salary;
-            success = false;
-
-            do
-            {
-                Console.WriteLine("Salary: ");
-                salary = Console.ReadLine();
-
-                if (string.IsNullOrWhiteSpace(salary))
-                {
-                    Console.WriteLine("You must enter something");
-                }
-                else
-                {
-                    success = true;
-                }
-
-            } while (!success);
-
-
-
-            payroll.AddEmplyee(name, 1000);
+            payroll.AddEmplyee(name, salary);
         }
 
         private static void ShowMainMeny()
