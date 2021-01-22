@@ -6,6 +6,7 @@ namespace EmployeeDirectoryNA21
 {
     public class ConsoleUI 
     {
+        //Metoder
         public string GetInput()
         {
             return Console.ReadLine();

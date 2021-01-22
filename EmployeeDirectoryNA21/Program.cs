@@ -4,13 +4,19 @@ namespace EmployeeDirectoryNA21
 {
     class Program
     {
+        //Instansierar en payroll och ett ui
+        //Scoopade till hela klassen
         static Payroll payroll = new Payroll();
         static ConsoleUI ui = new ConsoleUI();
 
+        //Programmets startpunkt
+        //Får bara finnas EN!
         static void Main(string[] args)
         {
+            //Skapar lite dummy data
             SeedData();
 
+            //ProgramLoop körs till användaren väljer att avsluta
             do
             {
                 ShowMainMeny();
@@ -21,6 +27,9 @@ namespace EmployeeDirectoryNA21
 
         private static void UserAction()
         {
+            //Tar ett värde från användaren
+            //Testar olika case tex användaren skriver in "1" då kör vi AddEmployee(). 
+            //Om vi inte träffar något case körs default koden
             switch (Console.ReadLine())
             {
                 case "1":
@@ -30,6 +39,7 @@ namespace EmployeeDirectoryNA21
                     PrintEmployee();
                     break;
                 case "3":
+                    //Avslutar programmet
                     Environment.Exit(0);
                     break;
                 default:
@@ -40,13 +50,14 @@ namespace EmployeeDirectoryNA21
 
         private static void AddEmployee()
         {
+            //Loopar tills användaren trycker "Q"
             do
             {
                 ui.Print("Add a new Employee, Q for exit");
-                string name = Util.AskForString("Name: ", ui);
-                if (name.Equals("Q")) break;
-                int salary = Util.AskForInt("Salary: ", ui);
-                payroll.AddEmplyee(name, salary);
+                string name = Util.AskForString("Name: ", ui);  //Säkerställer att vi får en input som inte är tom
+                if (name.Equals("Q")) break;                    //Hoppar ur loopen och återgår till ProgramLoopen
+                int salary = Util.AskForInt("Salary: ", ui);    //Säkerställer att vi får tillbaks en int 
+                payroll.AddEmplyee(name, salary);               //Skapar en ny instans av Employee och lägger till                                                 den i Payroll
 
             } while (true);
         }
@@ -60,10 +71,13 @@ namespace EmployeeDirectoryNA21
 
         private static void PrintEmployee()
         {
+            //Hämtar alla Employees från PayRoll
             Employee[] employees = payroll.GetEmployees();
 
             foreach (Employee employee in employees)
             {
+                //Overiden på ToString() som vi skrev i Employee klassen körs
+                //Console.WriteLine() kör automatiskt ToString() metoden
                 ui.Print(employee);
             }
         }
