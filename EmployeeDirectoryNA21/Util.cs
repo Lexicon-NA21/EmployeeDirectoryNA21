@@ -11,7 +11,7 @@ namespace EmployeeDirectoryNA21
     {
         //Prompt = det vi vill skriva ut på skärmen
         //Ui hanterar utskrift
-        public static string AskForString(string prompt, ConsoleUI ui)
+        public static string AskForString(string prompt, IUI ui)
         {
             bool success = false;
             string answer;
@@ -37,7 +37,7 @@ namespace EmployeeDirectoryNA21
             return answer;
         }
 
-        public static int AskForInt(string prompt, ConsoleUI ui)
+        public static int AskForInt(string prompt, IUI ui)
         {
             bool success = false;
             int answer;

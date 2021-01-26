@@ -8,6 +8,8 @@ namespace EmployeeDirectoryNA21
     {
         //Properties
         //Här utan setters vi kan alltså inte ändra värdet efter det satts
+
+        private int salary;
         public int Salary { get; }
         public string Name { get; }
 

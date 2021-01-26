@@ -7,7 +7,7 @@ namespace EmployeeDirectoryNA21
         //Instansierar en payroll och ett ui
         //Scoopade till hela klassen
         static Payroll payroll = new Payroll();
-        static ConsoleUI ui = new ConsoleUI();
+        static IUI ui = new ConsoleUI();
 
         //Programmets startpunkt
         //Får bara finnas EN!
@@ -23,6 +23,7 @@ namespace EmployeeDirectoryNA21
                 UserAction();
 
             } while (true);
+
         }
 
         private static void UserAction()

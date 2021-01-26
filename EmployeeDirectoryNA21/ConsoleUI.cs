@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EmployeeDirectoryNA21
 {
-    public class ConsoleUI 
+    public class ConsoleUI : IUI
     {
         //Metoder
         public string GetInput()
@@ -15,8 +15,8 @@ namespace EmployeeDirectoryNA21
         public void Print(string message)
         {
             Console.WriteLine(message);
-        }
-
+        } 
+        
         public void Print(Employee employee)
         {
             Console.WriteLine(employee);
