@@ -4,6 +4,9 @@ namespace EmployeeDirectoryNA21
 {
     class Program
     {
+
+ 
+
         //Instansierar en payroll och ett ui
         //Scoopade till hela klassen
         static Payroll payroll = new Payroll();
@@ -13,6 +16,18 @@ namespace EmployeeDirectoryNA21
         //Får bara finnas EN!
         static void Main(string[] args)
         {
+       
+
+            object foo = null;
+            foo = 5;
+            Console.WriteLine(foo);
+            foo = "Hej";
+            Console.WriteLine(foo);
+
+
+
+
+
             //Skapar lite dummy data
             SeedData();
 
@@ -80,8 +95,13 @@ namespace EmployeeDirectoryNA21
                 //Overiden på ToString() som vi skrev i Employee klassen körs
                 //Console.WriteLine() kör automatiskt ToString() metoden
                 ui.Print(employee);
+                ui.Print(employee.SalaryLevel == SalaryLevel.Junior ? DoJuniorWork() : DoSeniorWork());
             }
         }
+
+        private static string DoSeniorWork() => "Do senior work";
+
+        private static string DoJuniorWork() => "Do junior work";
 
         private static void SeedData()
         {

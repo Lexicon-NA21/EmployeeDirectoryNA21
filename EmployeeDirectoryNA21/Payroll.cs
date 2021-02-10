@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EmployeeDirectoryNA21
 {
-    class Payroll
+   class Payroll
     {
         //private fält
         private List<Employee> payroll;

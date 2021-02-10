@@ -24,6 +24,8 @@ namespace EmployeeDirectoryNA21
         
         }
 
+
+
         //Konstruktor
         public Employee(int salary, string name)
         {
